@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>Cadastro de Pessoas</title>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+</head>
+<body>
+
+
+<h1>Detalhes do Usúario</h1>
+<h3><a href="/listar" class"waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Lista de Usúario</a></h3>
+      <div th:each="user : ${user}" class="container">
+      <form method="post" action="/salvar">
+      <div class="row">
+      
+      <label for="nome">Nome:</label>
+      <input  type="text" name="nome" maxlength="60" required=""  size="32"><span th:text="${user.nome}"></span></input>
+      <p><label for="cpf">CPF:</label>
+     <input name="cpf" type="number" placeholder="insira seu CPF (somente números)"><span th:text="${user.cpf}"></span></input>
+       <p><label for="data">DataNASC:</label>
+          <input type="date" required="" name="data"><span th:text="${user.data}"></span></input>
+      <p><input type="submit"></input>
+   </form>
+          
+      </div>
+   </div> 	  	 
+   <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+</html>
